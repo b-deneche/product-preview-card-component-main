@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@700;900&family=Montserrat:wght@500&display=swap');
+
+/* Alternatively, you can use @font-face if needed 
+@font-face {
+    font-family: 'Montserrat';
+    src: url('https://fonts.google.com/specimen/Montserrat') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Fraunces';
+    src: url('https://fonts.google.com/specimen/Fraunces') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+*/
+/* Reset and base styles */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* Body and container styles */
+html, body {
+    height: 100vh;
+    font-family: 'Fraunces', sans-serif;
+    background-color: hsl(30, 38%, 92%);
+    display: grid;
+    place-items: center;
+    font-size: clamp(12px, calc(0.75rem + 0.1vw), 14px);
+}
+/* Container for the card */
+.container {
+    padding: 1rem;
+}
+/* Card styles */
+.card {
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    max-width: min-content;
+    max-height: 95vh;
+    overflow: hidden;
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows:1fr 1fr;
+}
+/* Image styles */
+.card-image {
+    min-width: 50%;
+    max-width: fit-content;
+    min-height: auto;
+    overflow:inherit;
+}
+/* Ensure the image fits within its container */
+.card img {
+    object-fit:scale-down;
+    width: 100%;
+    height: auto;
+}
+/* Card content styles */
+.card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card-content h1 {
+    font-size: calc(2rem + 1vw);
+    font-weight:bolder;
+    margin: 1rem;
+    color: hsl(212, 21%, 14%);
+    text-align: center;
+    text-transform: capitalize;
+}
+.card-category {
+    font-family: 'Montserrat', sans-serif;
+    font-size: calc(0.75rem + 1vw);
+    letter-spacing: 2px;
+    text-transform:capitalize;
+    color: hsl(158, 36%, 54%);
+    font-weight: lighter;
+}
+.card-content p {
+    font-size: calc(0.75 + 1vw);
+    color: hsl(212, 21%, 14%);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    font-family: 'Montserrat', sans-serif;
+    inline-size: 40ch;
+    text-align: center;
+}
+.card-pricing {
+    font-weight: bolder;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1rem;
+}
+.card-pricing .card-price-new {
+    font-size: calc(2rem + 1vw);
+    color: hsl(158, 36%, 37%);
+}
+
+.card-content .card-price-old {
+    text-decoration: line-through;
+    color: hsl(220, 14%, 75%);
+    font-size: calc(1rem + 0.5vw);
+    font-family: 'Montserrat', sans-serif;
+    align-self: flex-end;
+}
+/* Button styles */
+.card-content button {
+    width: 50%;
+    text-align: center;
+    font-weight: bolder;
+    background-color: hsl(158, 36%, 37%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem;
+    margin: auto;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color ease;
+}
+.card-content button:hover {
+    background-color: hsl(158, 36%, 25%);
+}
+/* Footer styles */
+footer {
+    font-size: 0.75rem;
+    color: hsl(220, 14%, 75%);
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    overflow: hidden;
+    height: 0;
+}
+/* Responsive styles */
+@media (min-width: 768px) {
+    body{
+        font-size: calc(14px + 0.2vw);
+        display: grid;
+        place-items: center;
+        grid-template-rows: 1fr auto;
+    }
+    .card {
+        display: flex;
+        flex-direction: row;
+        min-width: 50vw;
+        min-height:min-content;
+        height: 60vh;
+        max-width: min-content;
+    }
+    
+    .card-content {
+        font-size: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+    .card-content * {
+        text-align: center;
+        margin: auto;
+    }
+    .card-category {
+        font-size: calc(0.9rem + 0.5vw);
+    }
+    .card-content p {
+        inline-size: 34ch;
+    }
+    .card-content h1 {
+        font-size: calc(1.4rem + 1vw);
+        font-weight: bolder;
+    }
+    .card-content .price {
+        font-size: calc(1.5rem + 1vw);
+    }
+    .card-content button {
+        width: 70%;
+        font-size: 1rem;
+    }
+}
