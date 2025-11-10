@@ -94,12 +94,12 @@ html, body {
 }
 .card-pricing {
     font-weight: bolder;
-    display: grid;
-    grid-template-columns: auto auto;
+    display: flex;
     gap: 1rem;
     align-items: center;
     justify-content: center;
     margin-bottom: 1rem;
+    align-self:center;
 }
 .card-pricing .card-price-new {
     font-size: calc(1rem + 1vw);
@@ -112,7 +112,6 @@ html, body {
     color: hsl(220, 14%, 75%);
     font-size: calc(1rem + 0.5vw);
     font-family: 'Montserrat', sans-serif;
-    align-self: flex-end;
 }
 /* Button styles */
 .card-content button {
