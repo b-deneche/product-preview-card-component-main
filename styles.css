@@ -31,61 +31,62 @@ html, body {
 }
 /* Container for the card */
 .container {
-    padding: 1rem;
+    height: min-content;
+    width: fit-content;
 }
 /* Card styles */
 .card {
-    border-radius: 10px;
     background-color: white;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     max-width: min-content;
-    max-height: 95vh;
-    overflow: hidden;
-    display:grid;
-    grid-template-columns: 1fr;
-    grid-template-rows:1fr 1fr;
+    max-height: 90vh;
+    overflow:hidden;
+    display:flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    
 }
 /* Image styles */
 .card-image {
     min-width: 50%;
-    max-width: fit-content;
-    min-height: auto;
     overflow:inherit;
 }
 /* Ensure the image fits within its container */
 .card img {
     object-fit:scale-down;
     width: 100%;
-    height: auto;
 }
 /* Card content styles */
 .card-content {
-    padding: 1.5rem;
+    max-height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: space-between;
 }
 .card-content h1 {
-    font-size: calc(2rem + 1vw);
+    font-size: calc(1rem + 1vw);
     font-weight:bolder;
-    margin: 1rem;
     color: hsl(212, 21%, 14%);
     text-align: center;
     text-transform: capitalize;
 }
 .card-category {
     font-family: 'Montserrat', sans-serif;
-    font-size: calc(0.75rem + 1vw);
+    font-size: calc(0.75rem + 0.1vw);
+    height: min-content;
+    margin-left: 1rem;
+    line-height: 1.5;
     letter-spacing: 2px;
     text-transform:capitalize;
     color: hsl(158, 36%, 54%);
     font-weight: lighter;
+    align-items: center;
+    align-self: center;
 }
 .card-content p {
     font-size: calc(0.75 + 1vw);
     color: hsl(212, 21%, 14%);
-    margin-bottom: 1rem;
     line-height: 1.5;
     font-family: 'Montserrat', sans-serif;
     inline-size: 40ch;
@@ -96,14 +97,18 @@ html, body {
     display: grid;
     grid-template-columns: auto auto;
     gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
 }
 .card-pricing .card-price-new {
-    font-size: calc(2rem + 1vw);
+    font-size: calc(1rem + 1vw);
     color: hsl(158, 36%, 37%);
 }
 
 .card-content .card-price-old {
     text-decoration: line-through;
+    font-weight: lighter;
     color: hsl(220, 14%, 75%);
     font-size: calc(1rem + 0.5vw);
     font-family: 'Montserrat', sans-serif;
@@ -111,7 +116,9 @@ html, body {
 }
 /* Button styles */
 .card-content button {
-    width: 50%;
+    width: max-content;
+    align-self: center;
+    margin: 0 0 1rem 1rem;
     text-align: center;
     font-weight: bolder;
     background-color: hsl(158, 36%, 37%);
@@ -119,7 +126,6 @@ html, body {
     border: none;
     border-radius: 5px;
     padding: 1rem;
-    margin: auto;
     font-size: 1rem;
     cursor: pointer;
     transition: background-color ease;
@@ -137,30 +143,44 @@ footer {
     height: 0;
 }
 /* Responsive styles */
-@media (min-width: 1440px) {
+@media (min-width: 1024px) {
     body{
         font-size: clamp(14px, 12px + 1vw, 16px);
-        display: grid;
-        place-items: center;
-        grid-template-rows: 1fr auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-self: center;
+        flex-direction: column;
+    }
+    .container {
+        padding: 0;
+        height: min-content;
+        width: fit-content;
     }
     .card {
-        display: flex;
-        flex-direction: row;
-        min-width: 50vw;
-        min-height:min-content;
-        height: 60vh;
-        max-width: min-content;
-        max-height: 95vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        max-width: 60vw;
+        overflow: hidden;
     }
-    
+    .card-image {
+        min-width: fit-content;
+        max-width: min-content;
+        min-height: fit-content;
+        overflow:inherit;
+    }
+    .card-image img {
+        object-fit: cover;
+        width: 95%;
+        height: 100%;
+    }
     .card-content {
+        margin: 0;
         font-size: 1rem;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin:2rem 1rem 2rem 0rem;
+        justify-content: space-evenly;
     }
     .card-content * {
         text-align: left;
@@ -169,41 +189,37 @@ footer {
     .card-category {
         font-size: calc(0.75rem + 0.5vw);
         text-align: left;
-        width: 100%;
         margin-left: 1rem;
     }
     .card-content p {
         text-align: left;
-        min-width: 90%;
+        max-width: 90%;
         inline-size: 35ch;
-        margin-left: 1rem;        
+        margin-left: 1rem;
     }
     .card-content h1 {
-        font-size: calc(2rem + 0.1vw);
+        font-size: calc(3rem + 0.1vw);
         font-weight: bolder;
         color: hsl(212, 21%, 14%);
         text-align: left;
         text-transform: capitalize;
     }
-    .card-content .price {
+    .card-content .card-pricing {
         display: flex;
         align-items: center;
-        justify-content: left;
-        gap: 1rem;
+        justify-content: center;
     }
-    .card-pricing .card-price-new {
-        font-size: calc(1.5rem + 1vw);
-        margin-bottom: 2rem;
-margin-left: 1rem;
+    .card-price-new {
+        font-size: calc(1.5rem + 0.5vw);
     }
     .card-price-old {
-        font-size: calc(1rem + 0.5vw);
-        margin-left: 1rem;
-        margin-bottom: 2rem;
+        font-size: calc(1rem + 0.1vw);
+        font-weight: lighter;
     }
     .card-content button {
         width: 70%;
         font-size: 1rem;
-        margin-bottom: 1rem;
+        margin: 0 0 1rem 1rem;
+        max-height: max-content;
     }
 }
